@@ -18,8 +18,22 @@ app.use("/api/auth", authRoutes);
 app.use("/api/groups", groupRoutes);
 app.use("/api/expenses", expenseRoutes);
 app.use("/api/balances", balanceRoutes);
-app.get('/test',(req,res)=>{
-  res.send({'welcome':'user'})
+app.get('/test', (req, res) => {
+  res.send(`
+    <h2 style="
+      color: red;
+      font-size: 40px;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      background-color: #ffe6e6;
+      padding: 15px;
+      border: 2px solid red;
+      border-radius: 8px;
+    ">
+      Styled Red Heading
+    </h2>
+  `);
 });
+
 
 export default app;
