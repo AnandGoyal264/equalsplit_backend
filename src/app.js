@@ -9,7 +9,7 @@ import balanceRoutes from "./routes/balance.routes.js";
 const app = express();
 
 app.use(cors({
-  origin: "https://equisplit-puce.vercel.app",
+  origin: "https://equisplit.anandgoyal.online",
   credentials: true
 }));
 app.use(express.json());
