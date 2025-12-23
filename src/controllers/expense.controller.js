@@ -5,20 +5,26 @@ import { updateBalances } from "../services/balance.service.js";
 
 
 export const getGroupExpenses = async (req, res) => {
+  
   try {
     const { groupId } = req.params;
-    console.log("requestiscoming")
-    console.log(groupID)
+
+    console.log("✅ request is coming");
+    console.log("groupId:", groupId);
 
     const expenses = await Expense.find({ groupId })
       .populate("paidBy", "name email")
       .sort({ createdAt: -1 });
 
+    console.log("expenses found:", expenses.length);
+
     res.json(expenses);
   } catch (err) {
+    console.error("❌ getGroupExpenses error:", err);
     res.status(500).json({ message: err.message });
   }
 };
+
 
 export const addExpense = async (req, res) => {
   try {

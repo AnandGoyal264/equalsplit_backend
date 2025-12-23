@@ -4,9 +4,7 @@ import { addExpense ,getGroupExpenses} from "../controllers/expense.controller.j
 
 const router = Router();
 router.post("/", auth, addExpense);
-router.get("/groups/:groupId", auth ,(req,res)=>{
-    console.log("atleast request is coming")
-    getGroupExpenses});
+router.get("/groups/:groupId", auth ,getGroupExpenses);
 
 
 export default router;
