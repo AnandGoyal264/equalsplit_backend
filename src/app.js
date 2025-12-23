@@ -12,7 +12,7 @@ app.use(cors({
  origin: [
     "https://equisplit-puce.vercel.app",
     "https://equisplit.anandgoyal.online",
-    "localhost:5173"
+    "https://localhost:5173"
   ],
   credentials: true
 }));
