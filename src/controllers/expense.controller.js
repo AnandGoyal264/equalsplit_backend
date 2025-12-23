@@ -7,6 +7,8 @@ import { updateBalances } from "../services/balance.service.js";
 export const getGroupExpenses = async (req, res) => {
   try {
     const { groupId } = req.params;
+    console.log("requestiscoming")
+    console.log(groupID)
 
     const expenses = await Expense.find({ groupId })
       .populate("paidBy", "name email")
