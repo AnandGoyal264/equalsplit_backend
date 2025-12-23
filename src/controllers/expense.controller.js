@@ -3,6 +3,21 @@ import Group from "../models/Group.model.js";
 import { calculateSplit } from "../services/split.service.js";
 import { updateBalances } from "../services/balance.service.js";
 
+
+export const getGroupExpenses = async (req, res) => {
+  try {
+    const { groupId } = req.params;
+
+    const expenses = await Expense.find({ groupId })
+      .populate("paidBy", "name email")
+      .sort({ createdAt: -1 });
+
+    res.json(expenses);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
+
 export const addExpense = async (req, res) => {
   try {
     const { groupId, amount, description, splitType, splits } = req.body;

@@ -5,6 +5,7 @@ import {
   getMyGroups,
   getGroupById,
   addMemberToGroup,
+  getGroupExpenses
 } from "../controllers/group.controller.js";
 
 const router = Router();
@@ -17,6 +18,7 @@ router.get("/", auth, getMyGroups);
 
 // get single group details
 router.get("/:groupId", auth, getGroupById);
+router.get("/group/:groupId", auth, getGroupExpenses);
 
 // add member to group
 router.post("/:groupId/add-member", auth, addMemberToGroup);
